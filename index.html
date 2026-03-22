@@ -75,6 +75,7 @@
             padding: 18px;
             border-radius: 10px;
             text-align: center;
+            cursor: pointer;
         }
         .ministry h3 {
             color: #ffffff;
@@ -84,26 +85,26 @@
             font-size: 14px;
             color: #a9b8d9;
         }
-        .btn {
-            display: inline-block;
-            margin-top: 10px;
-            padding: 8px 16px;
-            background: #4a90e2;
-            color: white;
-            border-radius: 6px;
-            text-decoration: none;
-            font-size: 14px;
-            cursor: pointer;
-        }
-        .btn:hover {
-            background: #357abd;
-        }
-        .desc {
+        .page {
             display: none;
-            margin-top: 10px;
-            font-size: 13px;
-            color: #c5d1eb;
-            text-align: left;
+        }
+        .page.active {
+            display: block;
+        }
+        .back {
+            color: #4a90e2;
+            cursor: pointer;
+            margin-bottom: 20px;
+        }
+        .news-item {
+            background: #1e2a44;
+            padding: 16px;
+            border-radius: 8px;
+            margin: 10px 0;
+        }
+        .news-date {
+            color: #7eb8ff;
+            font-size: 14px;
         }
         footer {
             text-align: center;
@@ -120,8 +121,6 @@
 <header>
     <h1>星屿联邦</h1>
     <p>Stellar Isles Federation · 虚拟文化创作项目</p>
-
-    <!-- 国旗 SVG -->
     <div class="flag">
         <svg viewBox="0 0 22 14" xmlns="http://www.w3.org/2000/svg">
             <rect width="22" height="14" fill="#0a1f44"/>
@@ -133,85 +132,138 @@
 
 <div class="container">
 
-    <div class="card">
-        <h2>国家简介</h2>
-        <p>星屿联邦是一个纯虚构的虚拟文化创作项目，不宣称主权，不涉及现实政治，不代表任何真实国家。本项目仅用于文学、艺术、故事创作与兴趣交流。</p>
+    <!-- 首页 -->
+    <div id="home" class="page active">
+        <div class="card">
+            <h2>国家简介</h2>
+            <p>星屿联邦是一个纯虚构的虚拟文化创作项目，不宣称主权，不涉及现实政治，不代表任何真实国家。本项目仅用于文学、艺术、故事创作与兴趣交流。</p>
+        </div>
+
+        <div class="card">
+            <h2>基本设定</h2>
+            <p>首都：星屿城</p>
+            <p>政体：虚拟共和制</p>
+            <p>语言：中文、星屿语（虚构）</p>
+            <p>格言：星辰为路，文明为光</p>
+        </div>
+
+        <div class="card">
+            <h2>联邦部门</h2>
+            <div class="ministries">
+                <div class="ministry" onclick="showPage('foreign')">
+                    <h3>外交部</h3>
+                    <p>虚拟外交 · 联盟交流</p>
+                </div>
+                <div class="ministry" onclick="showPage('culture')">
+                    <h3>文化部</h3>
+                    <p>文化推广 · 艺术创作</p>
+                </div>
+                <div class="ministry" onclick="showPage('news')">
+                    <h3>新闻部</h3>
+                    <p>国家新闻 · 公告发布</p>
+                </div>
+                <div class="ministry" onclick="showPage('defense')">
+                    <h3>国防部</h3>
+                    <p>虚拟安全 · 战略设定</p>
+                </div>
+                <div class="ministry" onclick="showPage('finance')">
+                    <h3>财政部</h3>
+                    <p>虚拟经济 · 资源规划</p>
+                </div>
+                <div class="ministry" onclick="showPage('education')">
+                    <h3>教育部</h3>
+                    <p>知识体系 · 文化传承</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="card">
+            <h2>公民系统</h2>
+            <p>星屿联邦公民身份仅为虚拟趣味，不具备任何法律、政治或现实效力。加入即表示您理解并同意本项目为纯娱乐创作。</p>
+        </div>
     </div>
 
-    <div class="card">
-        <h2>基本设定</h2>
-        <p>首都：星屿城</p>
-        <p>政体：虚拟共和制</p>
-        <p>语言：中文、星屿语（虚构）</p>
-        <p>格言：星辰为路，文明为光</p>
+    <!-- 外交部页面 -->
+    <div id="foreign" class="page">
+        <div class="back" onclick="showPage('home')">← 返回首页</div>
+        <div class="card">
+            <h2>外交部 · Ministry of Foreign Affairs</h2>
+            <p><strong>职责：</strong>负责虚拟外交关系、联盟建立、文化交流、国际合作设定。</p>
+            <p><strong>外交理念：</strong>和平、合作、文明互鉴。</p>
+            <p><strong>现任部长：</strong>（你可以自己改）</p>
+            <p><strong>外交目标：</strong>与友好虚拟国家建立合作，推动文明交流。</p>
+        </div>
     </div>
 
-    <div class="card">
-        <h2>联邦部门</h2>
-        <div class="ministries">
+    <!-- 文化部页面 -->
+    <div id="culture" class="page">
+        <div class="back" onclick="showPage('home')">← 返回首页</div>
+        <div class="card">
+            <h2>文化部 · Ministry of Culture</h2>
+            <p><strong>职责：</strong>推广虚拟文化、节日、音乐、文学、艺术创作。</p>
+            <p><strong>文化特色：</strong>星辰文明、海洋文化、多元艺术。</p>
+            <p><strong>主要节日：</strong>星屿节、文明庆典、创想日。</p>
+            <p><strong>文化口号：</strong>艺术无界，文明共生。</p>
+        </div>
+    </div>
 
-            <div class="ministry">
-                <h3>外交部</h3>
-                <p>负责虚拟外交、联盟与文化交流</p>
-                <button class="btn" onclick="this.nextElementSibling.style.display='block'">查看简介</button>
-                <div class="desc">
-                    外交部是星屿联邦对外交流的核心部门，负责与其他虚拟国家建立友好关系、签署虚拟条约、组织文化交流活动。<br>
-                    若其他虚拟国家要与本国建交，致电：lizeyuan32@gmail.com
-                </div>
+    <!-- 新闻部页面（可随时发新闻） -->
+    <div id="news" class="page">
+        <div class="back" onclick="showPage('home')">← 返回首页</div>
+        <div class="card">
+            <h2>新闻部 · Ministry of News</h2>
+            <p><strong>职责：</strong>发布国家新闻、政策公告、重要事件、文化动态。</p>
+
+            <h3 style="margin-top:20px; color:#7eb8ff;">最新新闻</h3>
+
+            <!-- 新闻1（你可以复制这个格式加新闻） -->
+            <div class="news-item">
+                <div class="news-date">2026年3月22日</div>
+                <p><strong>星屿联邦正式成立！</strong></p>
+                <p>今日，星屿联邦虚拟国家正式上线，欢迎所有创作者加入！</p>
             </div>
 
-            <div class="ministry">
-                <h3>文化部</h3>
-                <p>推广虚拟文化、节日、艺术创作</p>
-                <button class="btn" onclick="this.nextElementSibling.style.display='block'">查看简介</button>
-                <div class="desc">
-                    文化部负责设计虚拟节日、推广文学与艺术创作、维护本国文化特色，让星屿联邦的文明更加丰富多元。
-                </div>
-            </div>
-
-            <div class="ministry">
-                <h3>新闻部</h3>
-                <p>发布虚拟国家新闻、公告与故事</p>
-                <button class="btn" onclick="this.nextElementSibling.style.display='block'">查看简介</button>
-                <div class="desc">
-                    新闻部负责发布国家公告、虚拟事件报道、世界观更新，让公民与外界了解星屿联邦的最新动态。
-                </div>
-            </div>
-
-            <div class="ministry">
-                <h3>国防部</h3>
-                <p>虚拟安全、战略设定与世界观维护</p>
-                <button class="btn" onclick="this.nextElementSibling.style.display='block'">查看简介</button>
-                <div class="desc">
-                    国防部负责虚拟安全体系、战略设定、世界观稳定，保障星屿联邦在虚拟世界中的秩序与安全。
-                </div>
-            </div>
-
-            <div class="ministry">
-                <h3>财政部</h3>
-                <p>虚拟经济、资源与发展规划</p>
-                <button class="btn" onclick="this.nextElementSibling.style.display='block'">查看简介</button>
-                <div class="desc">
-                    财政部管理虚拟经济体系、资源分配、国家发展规划，确保星屿联邦经济稳定、资源合理使用。
-                </div>
-            </div>
-
-            <div class="ministry">
-                <h3>教育部</h3>
-                <p>虚拟知识体系、历史与文化传承</p>
-                <button class="btn" onclick="this.nextElementSibling.style.display='block'">查看简介</button>
-                <div class="desc">
-                    教育部负责整理虚拟历史、知识体系、文化传承，让公民了解星屿联邦的起源与文明发展。
-                </div>
+            <!-- 新闻2（你可以改内容） -->
+            <div class="news-item">
+                <div class="news-date">2026年3月22日</div>
+                <p><strong>外交部启动联盟计划</strong></p>
+                <p>外交部宣布开启虚拟国家联盟计划，欢迎友好国家建交。</p>
             </div>
 
         </div>
     </div>
 
-    <div class="card">
-        <h2>公民加入</h2>
-        <p>星屿联邦公民身份仅为虚拟趣味，不具备任何法律、政治或现实效力。</p>
-        <p style="margin-top:8px; color:#7eb8ff;">若要加入，致电：lizeyuan32@gmail.com</p>
+    <!-- 国防部页面 -->
+    <div id="defense" class="page">
+        <div class="back" onclick="showPage('home')">← 返回首页</div>
+        <div class="card">
+            <h2>国防部 · Ministry of Defense</h2>
+            <p><strong>职责：</strong>虚拟国家安全、战略设定、世界观维护、和平保障。</p>
+            <p><strong>国防理念：</strong>和平为先，防御为主。</p>
+            <p><strong>安全原则：</strong>维护虚拟世界稳定，保障公民创作安全。</p>
+        </div>
+    </div>
+
+    <!-- 财政部页面 -->
+    <div id="finance" class="page">
+        <div class="back" onclick="showPage('home')">← 返回首页</div>
+        <div class="card">
+            <h2>财政部 · Ministry of Finance</h2>
+            <p><strong>职责：</strong>虚拟经济体系、资源分配、国家发展规划、经济稳定。</p>
+            <p><strong>货币单位：</strong>星币（虚拟）</p>
+            <p><strong>经济目标：</strong>公平、繁荣、可持续发展。</p>
+        </div>
+    </div>
+
+    <!-- 教育部页面 -->
+    <div id="education" class="page">
+        <div class="back" onclick="showPage('home')">← 返回首页</div>
+        <div class="card">
+            <h2>教育部 · Ministry of Education</h2>
+            <p><strong>职责：</strong>虚拟知识体系、历史传承、文化教育、公民素养。</p>
+            <p><strong>教育理念：</strong>知识启智，文明传承。</p>
+            <p><strong>主要课程：</strong>星屿历史、文明概论、创意思维。</p>
+        </div>
     </div>
 
 </div>
@@ -219,6 +271,15 @@
 <footer>
     合法声明：本站为虚构创作，不主张任何主权、领土或政府权力。所有内容仅供兴趣娱乐。
 </footer>
+
+<script>
+    function showPage(id) {
+        document.querySelectorAll('.page').forEach(page => {
+            page.classList.remove('active');
+        });
+        document.getElementById(id).classList.add('active');
+    }
+</script>
 
 </body>
 </html>
