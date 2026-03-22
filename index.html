@@ -63,6 +63,7 @@
         }
         .card p {
             color: #d0d9ee;
+            margin-bottom: 8px;
         }
         .ministries {
             display: grid;
@@ -113,6 +114,20 @@
             font-size: 14px;
             border-top: 1px solid #253250;
             margin-top: 40px;
+        }
+        /* 公民申请表单样式 */
+        .application-form {
+            background: #1e2a44;
+            padding: 20px;
+            border-radius: 10px;
+            margin-top: 15px;
+            border: 1px solid #2d3a5a;
+        }
+        .application-form p {
+            margin: 10px 0;
+        }
+        .application-form strong {
+            color: #7eb8ff;
         }
     </style>
 </head>
@@ -177,10 +192,21 @@
             </div>
         </div>
 
+        <!-- 已更新的公民系统：包含申请表单 -->
         <div class="card">
             <h2>公民系统</h2>
             <p>星屿联邦公民身份仅为虚拟趣味，不具备任何法律、政治或现实效力。加入即表示您理解并同意本项目为纯娱乐创作。</p>
+
+            <div class="application-form">
+                <h3 style="color:#7eb8ff; margin-bottom:15px;">📝 公民入籍申请表单</h3>
+                <p><strong>姓名/昵称：</strong>（虚拟或真实均可）</p>
+                <p><strong>期望部门：</strong>外交部 / 文化部 / 新闻部 / 国防部 / 财政部 / 教育部</p>
+                <p><strong>申请理由/特长：</strong>（简单说说你想做什么）</p>
+                <p><strong>提交方式：</strong>请将以上信息发送至邮箱</p>
+                <p style="color:#ffffff; font-weight:bold; margin-top:15px;">📧 申请邮箱：lizeyuan32@gmail.com</p>
+            </div>
         </div>
+
     </div>
 
     <!-- 外交部页面 -->
@@ -191,7 +217,7 @@
             <p><strong>职责：</strong>负责虚拟外交关系、联盟建立、文化交流、国际合作设定。</p>
             <p><strong>外交理念：</strong>和平、合作、文明互鉴。</p>
             <p><strong>外交目标：</strong>与友好虚拟国家建立合作，推动文明交流。</p>
-            <p style="margin-top:10px; color:#7eb8ff;"><strong>若其他虚拟国家要与本国建交，致电 lizeyuan32@gmail.com</strong></p>
+            <p style="margin-top:10px; color:#7eb8ff;"><strong>🤝 若其他虚拟国家要与本国建交，致电：lizeyuan32@gmail.com</strong></p>
         </div>
     </div>
 
@@ -214,14 +240,16 @@
             <h2>新闻部 · Ministry of News</h2>
             <p><strong>职责：</strong>发布国家新闻、政策公告、重要事件、文化动态。</p>
 
-            <h3 style="margin-top:20px; color:#7eb8ff;">最新新闻</h3>
+            <h3 style="margin-top:20px; color:#7eb8ff;">📰 最新新闻</h3>
 
+            <!-- 新闻1：示例 -->
             <div class="news-item">
                 <div class="news-date">2026年3月22日</div>
                 <p><strong>星屿联邦正式成立！</strong></p>
                 <p>今日，星屿联邦虚拟国家正式上线，欢迎所有创作者加入！</p>
             </div>
 
+            <!-- 新闻2：示例 -->
             <div class="news-item">
                 <div class="news-date">2026年3月22日</div>
                 <p><strong>外交部启动联盟计划</strong></p>
