@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>星屿联邦 | Stellar Isles Federation</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: "Segoe UI", "Microsoft YaHei", sans-serif;
+        }
+        body {
+            background: #0b1220;
+            color: #e8eefc;
+            line-height: 1.7;
+        }
+        header {
+            background: linear-gradient(135deg, #1e2a44, #111a2e);
+            padding: 40px 20px;
+            text-align: center;
+            border-bottom: 2px solid #4a90e2;
+        }
+        header h1 {
+            font-size: 32px;
+            margin-bottom: 10px;
+            color: #ffffff;
+        }
+        header p {
+            font-size: 16px;
+            color: #b8c7e4;
+        }
+        .flag {
+            width: 220px;
+            height: 140px;
+            margin: 20px auto;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 0 20px rgba(74, 144, 226, 0.4);
+        }
+        .container {
+            max-width: 900px;
+            margin: 40px auto;
+            padding: 0 20px;
+        }
+        .card {
+            background: #151d30;
+            border-radius: 12px;
+            padding: 24px;
+            margin-bottom: 20px;
+            border: 1px solid #253250;
+            transition: 0.3s;
+        }
+        .card:hover {
+            border-color: #4a90e2;
+            box-shadow: 0 8px 24px rgba(0,0,0,0.3);
+        }
+        .card h2 {
+            color: #7eb8ff;
+            margin-bottom: 12px;
+            font-size: 22px;
+        }
+        .card p {
+            color: #d0d9ee;
+        }
+        .ministries {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: 16px;
+            margin-top: 10px;
+        }
+        .ministry {
+            background: #1b2540;
+            padding: 18px;
+            border-radius: 10px;
+            text-align: center;
+        }
+        .ministry h3 {
+            color: #ffffff;
+            margin-bottom: 6px;
+        }
+        .ministry p {
+            font-size: 14px;
+            color: #a9b8d9;
+        }
+        .btn {
+            display: inline-block;
+            margin-top: 10px;
+            padding: 8px 16px;
+            background: #4a90e2;
+            color: white;
+            border-radius: 6px;
+            text-decoration: none;
+            font-size: 14px;
+            cursor: pointer;
+        }
+        .btn:hover {
+            background: #357abd;
+        }
+        .desc {
+            display: none;
+            margin-top: 10px;
+            font-size: 13px;
+            color: #c5d1eb;
+            text-align: left;
+        }
+        footer {
+            text-align: center;
+            padding: 30px;
+            color: #8a99b8;
+            font-size: 14px;
+            border-top: 1px solid #253250;
+            margin-top: 40px;
+        }
+    </style>
+</head>
+<body>
+
+<header>
+    <h1>星屿联邦</h1>
+    <p>Stellar Isles Federation · 虚拟文化创作项目</p>
+
+    <!-- 国旗 SVG -->
+    <div class="flag">
+        <svg viewBox="0 0 22 14" xmlns="http://www.w3.org/2000/svg">
+            <rect width="22" height="14" fill="#0a1f44"/>
+            <circle cx="11" cy="7" r="4" fill="#4a90e2"/>
+            <path d="M11 3v8 M7 7h8" stroke="white" stroke-width="1"/>
+        </svg>
+    </div>
+</header>
+
+<div class="container">
+
+    <div class="card">
+        <h2>国家简介</h2>
+        <p>星屿联邦是一个纯虚构的虚拟文化创作项目，不宣称主权，不涉及现实政治，不代表任何真实国家。本项目仅用于文学、艺术、故事创作与兴趣交流。</p>
+    </div>
+
+    <div class="card">
+        <h2>基本设定</h2>
+        <p>首都：星屿城</p>
+        <p>政体：虚拟共和制</p>
+        <p>语言：中文、星屿语（虚构）</p>
+        <p>格言：星辰为路，文明为光</p>
+    </div>
+
+    <div class="card">
+        <h2>联邦部门</h2>
+        <div class="ministries">
+
+            <div class="ministry">
+                <h3>外交部</h3>
+                <p>负责虚拟外交、联盟与文化交流</p>
+                <button class="btn" onclick="this.nextElementSibling.style.display='block'">查看简介</button>
+                <div class="desc">
+                    外交部是星屿联邦对外交流的核心部门，负责与其他虚拟国家建立友好关系、签署虚拟条约、组织文化交流活动。<br>
+                    若其他虚拟国家要与本国建交，致电：lizeyuan32@gmail.com
+                </div>
+            </div>
+
+            <div class="ministry">
+                <h3>文化部</h3>
+                <p>推广虚拟文化、节日、艺术创作</p>
+                <button class="btn" onclick="this.nextElementSibling.style.display='block'">查看简介</button>
+                <div class="desc">
+                    文化部负责设计虚拟节日、推广文学与艺术创作、维护本国文化特色，让星屿联邦的文明更加丰富多元。
+                </div>
+            </div>
+
+            <div class="ministry">
+                <h3>新闻部</h3>
+                <p>发布虚拟国家新闻、公告与故事</p>
+                <button class="btn" onclick="this.nextElementSibling.style.display='block'">查看简介</button>
+                <div class="desc">
+                    新闻部负责发布国家公告、虚拟事件报道、世界观更新，让公民与外界了解星屿联邦的最新动态。
+                </div>
+            </div>
+
+            <div class="ministry">
+                <h3>国防部</h3>
+                <p>虚拟安全、战略设定与世界观维护</p>
+                <button class="btn" onclick="this.nextElementSibling.style.display='block'">查看简介</button>
+                <div class="desc">
+                    国防部负责虚拟安全体系、战略设定、世界观稳定，保障星屿联邦在虚拟世界中的秩序与安全。
+                </div>
+            </div>
+
+            <div class="ministry">
+                <h3>财政部</h3>
+                <p>虚拟经济、资源与发展规划</p>
+                <button class="btn" onclick="this.nextElementSibling.style.display='block'">查看简介</button>
+                <div class="desc">
+                    财政部管理虚拟经济体系、资源分配、国家发展规划，确保星屿联邦经济稳定、资源合理使用。
+                </div>
+            </div>
+
+            <div class="ministry">
+                <h3>教育部</h3>
+                <p>虚拟知识体系、历史与文化传承</p>
+                <button class="btn" onclick="this.nextElementSibling.style.display='block'">查看简介</button>
+                <div class="desc">
+                    教育部负责整理虚拟历史、知识体系、文化传承，让公民了解星屿联邦的起源与文明发展。
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+    <div class="card">
+        <h2>公民加入</h2>
+        <p>星屿联邦公民身份仅为虚拟趣味，不具备任何法律、政治或现实效力。</p>
+        <p style="margin-top:8px; color:#7eb8ff;">若要加入，致电：lizeyuan32@gmail.com</p>
+    </div>
+
+</div>
+
+<footer>
+    合法声明：本站为虚构创作，不主张任何主权、领土或政府权力。所有内容仅供兴趣娱乐。
+</footer>
+
+</body>
+</html>
