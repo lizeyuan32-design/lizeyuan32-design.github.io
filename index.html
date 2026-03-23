@@ -1,9 +1,9 @@
 <!DOCTYPE html>
-<html lang="zh">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>星屿联邦 | Stellar Isles Federation</title>
+    <title>Stellar Isles Federation | 星屿联邦</title>
     <style>
         * {
             margin: 0;
@@ -50,6 +50,11 @@
             font-size: 16px;
             color: #b8c7e4;
         }
+        .emblem {
+            width: 160px;
+            height: 160px;
+            margin: 20px auto;
+        }
         .flag {
             width: 220px;
             height: 140px;
@@ -83,6 +88,17 @@
         .card p {
             color: #d0d9ee;
             margin-bottom: 8px;
+        }
+        .btn {
+            display: inline-block;
+            background: #4a90e2;
+            color: #fff;
+            padding: 12px 24px;
+            border-radius: 8px;
+            text-decoration: none;
+            font-weight: bold;
+            margin-top: 10px;
+            cursor: pointer;
         }
         .ministries {
             display: grid;
@@ -147,17 +163,39 @@
         .lang-section.active {
             display: block;
         }
+        .anthem {
+            background: #111a2e;
+            padding: 20px;
+            border-radius: 10px;
+            margin-top: 15px;
+            border-left: 4px solid #4a90e2;
+        }
+        .anthem h3 {
+            color: #7eb8ff;
+            margin-bottom: 10px;
+        }
+        .anthem p {
+            font-style: italic;
+            color: #cfe0ff;
+        }
     </style>
 </head>
 <body>
-
 <header>
     <div class="lang-switch">
-        <div class="lang-btn active" onclick="setLang('zh')">中文</div>
-        <div class="lang-btn" onclick="setLang('en')">English</div>
+        <div class="lang-btn" onclick="setLang('zh')">中文</div>
+        <div class="lang-btn active" onclick="setLang('en')">English</div>
     </div>
-    <h1>星屿联邦 / Stellar Isles Federation</h1>
-    <p>虚拟文化创作项目 · Virtual Cultural Creation Project</p>
+    <h1>Stellar Isles Federation / 星屿联邦</h1>
+    <p>Virtual Cultural Creation Project · 虚拟文化创作项目</p>
+    <div class="emblem">
+        <svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+            <circle cx="50" cy="50" r="45" fill="#0a1f44" stroke="#4a90e2" stroke-width="3"/>
+            <circle cx="50" cy="50" r="20" fill="#4a90e2"/>
+            <path d="M50 15 L50 85 M15 50 L85 50" stroke="white" stroke-width="2"/>
+            <circle cx="50" cy="50" r="8" fill="white"/>
+        </svg>
+    </div>
     <div class="flag">
         <svg viewBox="0 0 22 14" xmlns="http://www.w3.org/2000/svg">
             <rect width="22" height="14" fill="#0a1f44"/>
@@ -166,21 +204,29 @@
         </svg>
     </div>
 </header>
-
 <div class="container">
-
     <!-- 中文内容 -->
-    <div id="zh" class="lang-section active">
+    <div id="zh" class="lang-section">
         <div id="home-zh" class="page active">
             <div class="card">
                 <h2>国家简介</h2>
                 <p>星屿联邦是一个纯虚构的虚拟文化创作项目，不宣称主权，不涉及现实政治，不代表任何真实国家。本项目仅用于文学、艺术、故事创作与兴趣交流。</p>
+                <div class="btn" onclick="showPage('declaration-zh')">📜 阅读建国宣言</div>
+            </div>
+            <div class="card">
+                <h2>国歌 · 星屿颂</h2>
+                <div class="anthem">
+                    <p>星海无垠，文明为光，</p>
+                    <p>星屿之上，理想飞扬。</p>
+                    <p>同心共创，和平为纲，</p>
+                    <p>星辰为路，永志不忘。</p>
+                </div>
             </div>
             <div class="card">
                 <h2>基本设定</h2>
                 <p>首都：星屿城</p>
                 <p>政体：虚拟共和制</p>
-                <p>语言：中文、星屿语（虚构）</p>
+                <p>语言：中文、英语、星屿语（虚构）</p>
                 <p>格言：星辰为路，文明为光</p>
             </div>
             <div class="card">
@@ -225,7 +271,29 @@
                 </div>
             </div>
         </div>
-
+        <div id="declaration-zh" class="page">
+            <div class="back" onclick="showPage('home-zh')">← 返回首页</div>
+            <div class="card">
+                <h2>📜 星屿联邦建国宣言</h2>
+                <p>我们，星屿联邦的创造者与公民，</p>
+                <p>谨以文明、和平、创造之名，</p>
+                <p>宣告星屿联邦正式成立。</p>
+                <br>
+                <p>星屿联邦是一个无领土、无主权、无政治诉求的虚拟文化国家，</p>
+                <p>存在于想象与网络之间，</p>
+                <p>以星辰为信仰，以文明为方向，以共创为力量。</p>
+                <br>
+                <p>我们拒绝纷争，拥抱包容；</p>
+                <p>我们拒绝现实边界，拥抱无限想象；</p>
+                <p>我们拒绝孤独，拥抱共同体。</p>
+                <br>
+                <p>愿星屿之光，照亮每一位创作者的道路；</p>
+                <p>愿文明之火，永远在星屿之上燃烧。</p>
+                <br>
+                <p>星辰为路，文明为光。</p>
+                <p>星屿联邦，永世长存。</p>
+            </div>
+        </div>
         <div id="foreign-zh" class="page">
             <div class="back" onclick="showPage('home-zh')">← 返回首页</div>
             <div class="card">
@@ -236,7 +304,6 @@
                 <p style="margin-top:10px; color:#7eb8ff;"><strong>🤝 若其他虚拟国家要与本国建交，致电：lizeyuan32@gmail.com</strong></p>
             </div>
         </div>
-
         <div id="culture-zh" class="page">
             <div class="back" onclick="showPage('home-zh')">← 返回首页</div>
             <div class="card">
@@ -247,7 +314,6 @@
                 <p><strong>文化口号：</strong>艺术无界，文明共生。</p>
             </div>
         </div>
-
         <div id="news-zh" class="page">
             <div class="back" onclick="showPage('home-zh')">← 返回首页</div>
             <div class="card">
@@ -266,7 +332,6 @@
                 </div>
             </div>
         </div>
-
         <div id="defense-zh" class="page">
             <div class="back" onclick="showPage('home-zh')">← 返回首页</div>
             <div class="card">
@@ -276,7 +341,6 @@
                 <p><strong>安全原则：</strong>维护虚拟世界稳定，保障公民创作安全。</p>
             </div>
         </div>
-
         <div id="finance-zh" class="page">
             <div class="back" onclick="showPage('home-zh')">← 返回首页</div>
             <div class="card">
@@ -286,7 +350,6 @@
                 <p><strong>经济目标：</strong>公平、繁荣、可持续发展。</p>
             </div>
         </div>
-
         <div id="education-zh" class="page">
             <div class="back" onclick="showPage('home-zh')">← 返回首页</div>
             <div class="card">
@@ -297,19 +360,28 @@
             </div>
         </div>
     </div>
-
     <!-- 英文内容 -->
-    <div id="en" class="lang-section">
+    <div id="en" class="lang-section active">
         <div id="home-en" class="page active">
             <div class="card">
                 <h2>About the Nation</h2>
                 <p>The Stellar Isles Federation is a purely fictional virtual cultural creation project. It claims no sovereignty, involves no real politics, and does not represent any real country. This project is for literary, artistic, and storytelling purposes only.</p>
+                <div class="btn" onclick="showPage('declaration-en')">📜 Read Declaration</div>
+            </div>
+            <div class="card">
+                <h2>National Anthem · Hymn of the Stellar Isles</h2>
+                <div class="anthem">
+                    <p>Stars beyond the boundless sea,</p>
+                    <p>Civilization’s light shall be.</p>
+                    <p>One in heart, we strive for peace,</p>
+                    <p>Stellar path, our souls release.</p>
+                </div>
             </div>
             <div class="card">
                 <h2>Basic Information</h2>
                 <p>Capital: Stellar Isle City</p>
                 <p>Government: Virtual Republic</p>
-                <p>Languages: Chinese, Stellar Language (fictional)</p>
+                <p>Languages: English, Chinese, Stellar Language (fictional)</p>
                 <p>Motto: Stars guide the way, civilization shines the light</p>
             </div>
             <div class="card">
@@ -354,7 +426,29 @@
                 </div>
             </div>
         </div>
-
+        <div id="declaration-en" class="page">
+            <div class="back" onclick="showPage('home-en')">← Back to Home</div>
+            <div class="card">
+                <h2>📜 Declaration of Foundation</h2>
+                <p>We, the founders and citizens of the Stellar Isles Federation,</p>
+                <p>in the name of civilization, peace, and creation,</p>
+                <p>hereby declare the official establishment of the Stellar Isles Federation.</p>
+                <br>
+                <p>The Stellar Isles Federation is a non-territorial, non-sovereign, virtual cultural nation,</p>
+                <p>existing between imagination and the internet.</p>
+                <p>We believe in stars as our faith, civilization as our direction, and creation as our strength.</p>
+                <br>
+                <p>We reject conflict and embrace inclusion;</p>
+                <p>We reject borders and embrace infinite imagination;</p>
+                <p>We reject loneliness and embrace community.</p>
+                <br>
+                <p>May the light of the Stellar Isles illuminate every creator’s path;</p>
+                <p>May the flame of civilization burn forever above the Stellar Isles.</p>
+                <br>
+                <p>Stars guide the way, civilization shines the light.</p>
+                <p>Stellar Isles Federation, forever and always.</p>
+            </div>
+        </div>
         <div id="foreign-en" class="page">
             <div class="back" onclick="showPage('home-en')">← Back to Home</div>
             <div class="card">
@@ -365,7 +459,6 @@
                 <p style="margin-top:10px; color:#7eb8ff;"><strong>🤝 For diplomatic relations: lizeyuan32@gmail.com</strong></p>
             </div>
         </div>
-
         <div id="culture-en" class="page">
             <div class="back" onclick="showPage('home-en')">← Back to Home</div>
             <div class="card">
@@ -376,7 +469,6 @@
                 <p><strong>Motto:</strong> Art without borders, civilization in harmony.</p>
             </div>
         </div>
-
         <div id="news-en" class="page">
             <div class="back" onclick="showPage('home-en')">← Back to Home</div>
             <div class="card">
@@ -395,7 +487,6 @@
                 </div>
             </div>
         </div>
-
         <div id="defense-en" class="page">
             <div class="back" onclick="showPage('home-en')">← Back to Home</div>
             <div class="card">
@@ -405,7 +496,6 @@
                 <p><strong>Principle:</strong> Protect the virtual world and ensure safe creation for citizens.</p>
             </div>
         </div>
-
         <div id="finance-en" class="page">
             <div class="back" onclick="showPage('home-en')">← Back to Home</div>
             <div class="card">
@@ -415,7 +505,6 @@
                 <p><strong>Goal:</strong> Fairness, prosperity, and sustainable development.</p>
             </div>
         </div>
-
         <div id="education-en" class="page">
             <div class="back" onclick="showPage('home-en')">← Back to Home</div>
             <div class="card">
@@ -426,14 +515,11 @@
             </div>
         </div>
     </div>
-
 </div>
-
 <footer>
-    <span class="zh-text">合法声明：本站为虚构创作，不主张任何主权、领土或政府权力。</span>
-    <span class="en-text" style="display:none;">Legal Note: This site is fictional. It claims no sovereignty or real-world authority.</span>
+    <span class="zh-text" style="display:none;">合法声明：本站为虚构创作，不主张任何主权、领土或政府权力。</span>
+    <span class="en-text">Legal Note: This site is fictional. It claims no sovereignty or real-world authority.</span>
 </footer>
-
 <script>
     function setLang(lang) {
         document.querySelectorAll('.lang-section').forEach(s => s.classList.remove('active'));
@@ -448,6 +534,5 @@
         document.getElementById(id).classList.add('active');
     }
 </script>
-
 </body>
 </html>
