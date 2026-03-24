@@ -50,6 +50,14 @@
             font-size: 16px;
             color: #b8c7e4;
         }
+        .motto {
+            font-size: 18px;
+            color: #7eb8ff;
+            font-weight: bold;
+            margin-top: 10px;
+            height: 28px;
+            overflow: hidden;
+        }
         .emblem {
             width: 160px;
             height: 160px;
@@ -67,6 +75,28 @@
             max-width: 900px;
             margin: 40px auto;
             padding: 0 20px;
+        }
+        .stats {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+            gap: 15px;
+            margin-bottom: 30px;
+        }
+        .stat-card {
+            background: #151d30;
+            padding: 20px;
+            border-radius: 12px;
+            text-align: center;
+            border: 1px solid #253550;
+        }
+        .stat-number {
+            font-size: 28px;
+            color: #4a90e2;
+            font-weight: bold;
+        }
+        .stat-label {
+            font-size: 14px;
+            color: #a9b8d9;
         }
         .card {
             background: #151d30;
@@ -188,6 +218,7 @@
     </div>
     <h1>Stellar Isles Federation / 星屿联邦</h1>
     <p>Virtual Cultural Creation Project · 虚拟文化创作项目</p>
+    <div class="motto" id="motto"></div>
     <div class="emblem">
         <svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
             <circle cx="50" cy="50" r="45" fill="#0a1f44" stroke="#4a90e2" stroke-width="3"/>
@@ -204,15 +235,38 @@
         </svg>
     </div>
 </header>
+
 <div class="container">
     <!-- 中文内容 -->
     <div id="zh" class="lang-section">
         <div id="home-zh" class="page active">
+            <div class="stats">
+                <div class="stat-card">
+                    <div class="stat-number">128</div>
+                    <div class="stat-label">公民数量</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-number">0</div>
+                    <div class="stat-label">建交国家</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-number">42</div>
+                    <div class="stat-label">文化作品</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-number">2</div>
+                    <div class="stat-label">成立天数</div>
+                </div>
+            </div>
+
             <div class="card">
                 <h2>国家简介</h2>
                 <p>星屿联邦是一个纯虚构的虚拟文化创作项目，不宣称主权，不涉及现实政治，不代表任何真实国家。本项目仅用于文学、艺术、故事创作与兴趣交流。</p>
                 <div class="btn" onclick="showPage('declaration-zh')">📜 阅读建国宣言</div>
+                <div class="btn" onclick="showPage('history-zh')">📜 联邦历史</div>
+                <div class="btn" onclick="showPage('foreignpolicy-zh')">🌍 外交政策</div>
             </div>
+
             <div class="card">
                 <h2>国歌 · 星屿颂</h2>
                 <div class="anthem">
@@ -222,6 +276,7 @@
                     <p>星辰为路，永志不忘。</p>
                 </div>
             </div>
+
             <div class="card">
                 <h2>基本设定</h2>
                 <p>首都：星屿城</p>
@@ -230,8 +285,9 @@
                 <p>国旗：深蓝底色，中央为白色星辰与海洋图案，象征星屿联邦的星辰信仰与海洋文明。</p>
                 <p>格言：星辰为路，文明为光，和平为纲，共创为魂。</p>
             </div>
+
             <div class="card">
-                <h2>联邦部门</h2>
+                <h2>联邦部门（12个）</h2>
                 <div class="ministries">
                     <div class="ministry" onclick="showPage('foreign-zh')">
                         <h3>外交部</h3>
@@ -257,8 +313,33 @@
                         <h3>教育部</h3>
                         <p>知识体系 · 文化传承</p>
                     </div>
+                    <div class="ministry" onclick="showPage('tech-zh')">
+                        <h3>科技部</h3>
+                        <p>星辰科技 · 未来研发</p>
+                    </div>
+                    <div class="ministry" onclick="showPage('env-zh')">
+                        <h3>环境部</h3>
+                        <p>生态保护 · 海洋文明</p>
+                    </div>
+                    <div class="ministry" onclick="showPage('explore-zh')">
+                        <h3>星际探索部</h3>
+                        <p>深空探索 · 宇宙文明</p>
+                    </div>
+                    <div class="ministry" onclick="showPage('ocean-zh')">
+                        <h3>海洋事务部</h3>
+                        <p>深海文明 · 海洋治理</p>
+                    </div>
+                    <div class="ministry" onclick="showPage('creative-zh')">
+                        <h3>创意与幻想部</h3>
+                        <p>故事创作 · 世界观设计</p>
+                    </div>
+                    <div class="ministry" onclick="showPage('public-zh')">
+                        <h3>公共事务部</h3>
+                        <p>公民服务 · 社区管理</p>
+                    </div>
                 </div>
             </div>
+
             <div class="card">
                 <h2>公民系统</h2>
                 <p>星屿联邦公民身份仅为虚拟趣味，不具备任何法律、政治或现实效力。加入即表示您理解并同意本项目为纯娱乐创作。</p>
@@ -270,62 +351,34 @@
                 <div class="application-form">
                     <h3 style="color:#7eb8ff; margin-bottom:15px;">📝 公民入籍申请表单</h3>
                     <p><strong>姓名/昵称：</strong>（虚拟或真实均可）</p>
-                    <p><strong>期望部门：</strong>外交部 / 文化部 / 新闻部 / 国防部 / 财政部 / 教育部</p>
+                    <p><strong>期望部门：</strong>外交部 / 文化部 / 新闻部 / 国防部 / 财政部 / 教育部 / 科技部 / 环境部 / 星际探索部 / 海洋事务部 / 创意与幻想部 / 公共事务部</p>
                     <p><strong>申请理由/特长：</strong>（简单说说你想做什么）</p>
                     <p><strong>提交方式：</strong>请将以上信息发送至邮箱</p>
                     <p style="color:#ffffff; font-weight:bold; margin-top:15px;">📧 申请邮箱：lizeyuan32@gmail.com</p>
                 </div>
             </div>
         </div>
-        <div id="declaration-zh" class="page">
-            <div class="back" onclick="showPage('home-zh')">← 返回首页</div>
-            <div class="card">
-                <h2>📜 星屿联邦建国宣言</h2>
-                <p>我们，星屿联邦的创造者与公民，</p>
-                <p>谨以文明、和平、创造之名，</p>
-                <p>宣告星屿联邦正式成立。</p>
-                <br>
-                <p>星屿联邦是一个无领土、无主权、无政治诉求的虚拟文化国家，</p>
-                <p>存在于想象与网络之间，</p>
-                <p>以星辰为信仰，以文明为方向，以共创为力量。</p>
-                <br>
-                <p>我们拒绝纷争，拥抱包容；</p>
-                <p>我们拒绝现实边界，拥抱无限想象；</p>
-                <p>我们拒绝孤独，拥抱共同体。</p>
-                <br>
-                <p>愿星屿之光，照亮每一位创作者的道路；</p>
-                <p>愿文明之火，永远在星屿之上燃烧。</p>
-                <br>
-                <p>星辰为路，文明为光。</p>
-                <p>星屿联邦，永世长存。</p>
-            </div>
-        </div>
-        <div id="foreign-zh" class="page">
-            <div class="back" onclick="showPage('home-zh')">← 返回首页</div>
-            <div class="card">
-                <h2>外交部 · Ministry of Foreign Affairs</h2>
-                <p><strong>职责：</strong>负责虚拟外交关系、联盟建立、文化交流、国际合作设定。</p>
-                <p><strong>外交理念：</strong>和平、合作、文明互鉴。</p>
-                <p><strong>外交目标：</strong>与友好虚拟国家建立合作，推动文明交流。</p>
-                <p style="margin-top:10px; color:#7eb8ff;"><strong>🤝 若其他虚拟国家要与本国建交，致电：lizeyuan32@gmail.com</strong></p>
-            </div>
-        </div>
-        <div id="culture-zh" class="page">
-            <div class="back" onclick="showPage('home-zh')">← 返回首页</div>
-            <div class="card">
-                <h2>文化部 · Ministry of Culture</h2>
-                <p><strong>职责：</strong>推广虚拟文化、节日、音乐、文学、艺术创作。</p>
-                <p><strong>文化特色：</strong>星辰文明、海洋文化、多元艺术。</p>
-                <p><strong>主要节日：</strong>星屿节、文明共创日、和平纪念日</p>
-                <p><strong>文化口号：</strong>艺术无界，文明共生。</p>
-            </div>
-        </div>
+
+        <div id="declaration-zh" class="page"><div class="back" onclick="showPage('home-zh')">← 返回首页</div><div class="card"><h2>📜 星屿联邦建国宣言</h2><p>我们，星屿联邦的创造者与公民，</p><p>谨以文明、和平、创造之名，</p><p>宣告星屿联邦正式成立。</p><br><p>星屿联邦是一个无领土、无主权、无政治诉求的虚拟文化国家，</p><p>存在于想象与网络之间，</p><p>以星辰为信仰，以文明为方向，以共创为力量。</p><br><p>我们拒绝纷争，拥抱包容；</p><p>我们拒绝现实边界，拥抱无限想象；</p><p>我们拒绝孤独，拥抱共同体。</p><br><p>愿星屿之光，照亮每一位创作者的道路；</p><p>愿文明之火，永远在星屿之上燃烧。</p><br><p>星辰为路，文明为光。</p><p>星屿联邦，永世长存。</p></div></div>
+        <div id="history-zh" class="page"><div class="back" onclick="showPage('home-zh')">← 返回首页</div><div class="card"><h2>📜 星屿联邦历史</h2><p><strong>2026年3月22日：星屿联邦正式成立</strong></p><p>由一群热爱创作、向往和平的创作者共同建立，以星辰与海洋为精神图腾。</p><br><p><strong>2026年3月23日：文化体系初步建立</strong></p><p>发布国歌、国旗、国家格言，开启“星屿文化月”。</p><br><p><strong>未来：</strong>星屿联邦将持续发展，吸引更多创作者加入，构建一个和平、自由、共创的虚拟文明。</p></div></div>
+        <div id="foreignpolicy-zh" class="page"><div class="back" onclick="showPage('home-zh')">← 返回首页</div><div class="card"><h2>🌍 星屿联邦外交政策</h2><p><strong>一、核心原则：</strong>和平、中立、合作、文明互鉴。</p><p><strong>二、建交条件：</strong></p><p>• 认同和平理念，不主张冲突与战争</p><p>• 尊重虚拟国家主权与文化</p><p>• 愿意进行文化、艺术、创作交流</p><br><p><strong>三、联盟目标：</strong></p><p>建立友好虚拟国家联盟，共同推动创作文化发展，维护虚拟世界和平。</p></div></div>
+        <div id="foreign-zh" class="page"><div class="back" onclick="showPage('home-zh')">← 返回首页</div><div class="card"><h2>外交部 · Ministry of Foreign Affairs</h2><p><strong>职责：</strong>负责虚拟外交关系、联盟建立、文化交流、国际合作设定。</p><p><strong>外交理念：</strong>和平、合作、文明互鉴。</p><p><strong>外交目标：</strong>与友好虚拟国家建立合作，推动文明交流。</p><p style="margin-top:10px; color:#7eb8ff;"><strong>🤝 若其他虚拟国家要与本国建交，致电：lizeyuan32@gmail.com</strong></p></div></div>
+        <div id="culture-zh" class="page"><div class="back" onclick="showPage('home-zh')">← 返回首页</div><div class="card"><h2>文化部 · Ministry of Culture</h2><p><strong>职责：</strong>推广虚拟文化、节日、音乐、文学、艺术创作。</p><p><strong>文化特色：</strong>星辰文明、海洋文化、多元艺术。</p><p><strong>主要节日：</strong>星屿节、文明共创日、和平纪念日</p><p><strong>文化口号：</strong>艺术无界，文明共生。</p></div></div>
+        
+        <!-- 中文新闻部（新增今日新闻） -->
         <div id="news-zh" class="page">
             <div class="back" onclick="showPage('home-zh')">← 返回首页</div>
             <div class="card">
                 <h2>新闻部 · Ministry of News</h2>
                 <p><strong>职责：</strong>发布国家新闻、政策公告、重要事件、文化动态。</p>
                 <h3 style="margin-top:20px; color:#7eb8ff;">📰 最新新闻</h3>
+                
+                <div class="news-item">
+                    <div class="news-date">2026年3月24日</div>
+                    <p><strong>星屿联邦新增四大部门，国家体系全面完善</strong></p>
+                    <p>为进一步完善国家架构、丰富虚拟文明内涵，星屿联邦今日正式成立**星际探索部、海洋事务部、创意与幻想部、公共事务部**四大部门。联邦部门总数增至12个，涵盖外交、文化、科技、探索、海洋、创作、公共服务等全领域，标志着星屿联邦进入系统化、完整化发展新阶段。</p>
+                </div>
+
                 <div class="news-item">
                     <div class="news-date">2026年3月23日</div>
                     <p><strong>文化部推出“星屿文化月”活动</strong></p>
@@ -343,41 +396,48 @@
                 </div>
             </div>
         </div>
-        <div id="defense-zh" class="page">
-            <div class="back" onclick="showPage('home-zh')">← 返回首页</div>
-            <div class="card">
-                <h2>国防部 · Ministry of Defense</h2>
-                <p><strong>职责：</strong>虚拟国家安全、战略设定、世界观维护、和平保障。</p>
-                <p><strong>国防理念：</strong>星屿联邦奉行绝对和平主义，不设军队，不参与冲突，以文化与文明力量维护国家安全。</p>
-            </div>
-        </div>
-        <div id="finance-zh" class="page">
-            <div class="back" onclick="showPage('home-zh')">← 返回首页</div>
-            <div class="card">
-                <h2>财政部 · Ministry of Finance</h2>
-                <p><strong>职责：</strong>虚拟经济体系、资源分配、国家发展规划、经济稳定。</p>
-                <p><strong>货币单位：</strong>星币（虚拟）</p>
-                <p><strong>经济目标：</strong>公平、繁荣、可持续发展。</p>
-            </div>
-        </div>
-        <div id="education-zh" class="page">
-            <div class="back" onclick="showPage('home-zh')">← 返回首页</div>
-            <div class="card">
-                <h2>教育部 · Ministry of Education</h2>
-                <p><strong>职责：</strong>虚拟知识体系、历史传承、文化教育、公民素养。</p>
-                <p><strong>教育理念：</strong>知识启智，文明传承。</p>
-                <p><strong>主要课程：</strong>星屿历史、文明概论、创意思维。</p>
-            </div>
-        </div>
+
+        <div id="defense-zh" class="page"><div class="back" onclick="showPage('home-zh')">← 返回首页</div><div class="card"><h2>国防部 · Ministry of Defense</h2><p><strong>职责：</strong>虚拟国家安全、战略设定、世界观维护、和平保障。</p><p><strong>国防理念：</strong>星屿联邦奉行绝对和平主义，不设军队，不参与冲突，以文化与文明力量维护国家安全。</p></div></div>
+        <div id="finance-zh" class="page"><div class="back" onclick="showPage('home-zh')">← 返回首页</div><div class="card"><h2>财政部 · Ministry of Finance</h2><p><strong>职责：</strong>虚拟经济体系、资源分配、国家发展规划、经济稳定。</p><p><strong>货币单位：</strong>星币（虚拟）</p><p><strong>经济目标：</strong>公平、繁荣、可持续发展。</p></div></div>
+        <div id="education-zh" class="page"><div class="back" onclick="showPage('home-zh')">← 返回首页</div><div class="card"><h2>教育部 · Ministry of Education</h2><p><strong>职责：</strong>虚拟知识体系、历史传承、文化教育、公民素养。</p><p><strong>教育理念：</strong>知识启智，文明传承。</p><p><strong>主要课程：</strong>星屿历史、文明概论、创意思维。</p></div></div>
+        <div id="tech-zh" class="page"><div class="back" onclick="showPage('home-zh')">← 返回首页</div><div class="card"><h2>科技部 · Ministry of Science & Technology</h2><p><strong>职责：</strong>星辰科技研发、虚拟技术体系、未来世界观设定、创新项目推进。</p><p><strong>科技理念：</strong>科技服务文明，创新点亮星辰。</p><p><strong>研究方向：</strong>星辰能源、虚拟生态、未来城市、数字文明。</p></div></div>
+        <div id="env-zh" class="page"><div class="back" onclick="showPage('home-zh')">← 返回首页</div><div class="card"><h2>环境部 · Ministry of Environment</h2><p><strong>职责：</strong>虚拟生态保护、海洋文明建设、环境可持续发展、自然文化传承。</p><p><strong>环保理念：</strong>守护星辰大海，共建绿色文明。</p><p><strong>保护目标：</strong>海洋生态、星空环境、虚拟自然平衡。</p></div></div>
+        <div id="explore-zh" class="page"><div class="back" onclick="showPage('home-zh')">← 返回首页</div><div class="card"><h2>星际探索部 · Ministry of Stellar Exploration</h2><p><strong>职责：</strong>深空探索、星球设定、宇宙文明研究、星际航线规划。</p><p><strong>探索理念：</strong>星海无垠，探索不止。</p><p><strong>核心项目：</strong>星屿深空计划、外星文明接触预案、宇宙观构建。</p></div></div>
+        <div id="ocean-zh" class="page"><div class="back" onclick="showPage('home-zh')">← 返回首页</div><div class="card"><h2>海洋事务部 · Ministry of Ocean Affairs</h2><p><strong>职责：</strong>深海文明建设、海洋资源管理、海岛生态保护、海洋文化传承。</p><p><strong>海洋理念：</strong>海纳百川，屿立千秋。</p><p><strong>核心项目：</strong>星屿深海公园、海洋文明博物馆、蓝色经济规划。</p></div></div>
+        <div id="creative-zh" class="page"><div class="back" onclick="showPage('home-zh')">← 返回首页</div><div class="card"><h2>创意与幻想部 · Ministry of Creative & Fantasy</h2><p><strong>职责：</strong>故事创作、小说世界观、角色设定、架空历史、幻想体系构建。</p><p><strong>创意理念：</strong>想象无界，幻想成真。</p><p><strong>核心项目：</strong>星屿史诗计划、公民创作大赛、虚拟世界扩展。</p></div></div>
+        <div id="public-zh" class="page"><div class="back" onclick="showPage('home-zh')">← 返回首页</div><div class="card"><h2>公共事务部 · Ministry of Public Affairs</h2><p><strong>职责：</strong>公民服务、社区管理、公共项目协调、国家日常运作、秩序维护。</p><p><strong>公共理念：</strong>服务公民，共建家园。</p><p><strong>核心项目：</strong>公民服务中心、社区活动、公共福利、国家档案管理。</p></div></div>
     </div>
+
     <!-- 英文内容 -->
     <div id="en" class="lang-section active">
         <div id="home-en" class="page active">
+            <div class="stats">
+                <div class="stat-card">
+                    <div class="stat-number">128</div>
+                    <div class="stat-label">Citizens</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-number">0</div>
+                    <div class="stat-label">Alliances</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-number">42</div>
+                    <div class="stat-label">Cultural Works</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-number">2</div>
+                    <div class="stat-label">Days Old</div>
+                </div>
+            </div>
+
             <div class="card">
                 <h2>About the Nation</h2>
                 <p>The Stellar Isles Federation is a purely fictional virtual cultural creation project. It claims no sovereignty, involves no real politics, and does not represent any real country. This project is for literary, artistic, and storytelling purposes only.</p>
                 <div class="btn" onclick="showPage('declaration-en')">📜 Read Declaration</div>
+                <div class="btn" onclick="showPage('history-en')">📜 Federation History</div>
+                <div class="btn" onclick="showPage('foreignpolicy-en')">🌍 Foreign Policy</div>
             </div>
+
             <div class="card">
                 <h2>National Anthem · Hymn of the Stellar Isles</h2>
                 <div class="anthem">
@@ -387,6 +447,7 @@
                     <p>Stellar path, our souls release.</p>
                 </div>
             </div>
+
             <div class="card">
                 <h2>Basic Information</h2>
                 <p>Capital: Stellar Isle City</p>
@@ -395,8 +456,9 @@
                 <p>National Flag: Dark blue background with a white star and ocean pattern in the center, symbolizing the Stellar belief and ocean civilization.</p>
                 <p>Motto: Stars guide the way, civilization shines the light, peace is the foundation, creation is the soul.</p>
             </div>
+
             <div class="card">
-                <h2>Federal Ministries</h2>
+                <h2>Federal Ministries (12)</h2>
                 <div class="ministries">
                     <div class="ministry" onclick="showPage('foreign-en')">
                         <h3>Foreign Affairs</h3>
@@ -422,8 +484,33 @@
                         <h3>Education</h3>
                         <p>Knowledge & Heritage</p>
                     </div>
+                    <div class="ministry" onclick="showPage('tech-en')">
+                        <h3>Science & Tech</h3>
+                        <p>Stellar Technology</p>
+                    </div>
+                    <div class="ministry" onclick="showPage('env-en')">
+                        <h3>Environment</h3>
+                        <p>Ecology & Nature</p>
+                    </div>
+                    <div class="ministry" onclick="showPage('explore-en')">
+                        <h3>Stellar Exploration</h3>
+                        <p>Deep Space & Cosmos</p>
+                    </div>
+                    <div class="ministry" onclick="showPage('ocean-en')">
+                        <h3>Ocean Affairs</h3>
+                        <p>Deep Sea & Maritime</p>
+                    </div>
+                    <div class="ministry" onclick="showPage('creative-en')">
+                        <h3>Creative & Fantasy</h3>
+                        <p>Stories & Worldbuilding</p>
+                    </div>
+                    <div class="ministry" onclick="showPage('public-en')">
+                        <h3>Public Affairs</h3>
+                        <p>Citizen Services</p>
+                    </div>
                 </div>
             </div>
+
             <div class="card">
                 <h2>Citizenship</h2>
                 <p>Citizenship of the Stellar Isles Federation is purely fictional and for entertainment only. It holds no legal or political status in the real world.</p>
@@ -435,62 +522,34 @@
                 <div class="application-form">
                     <h3 style="color:#7eb8ff; margin-bottom:15px;">📝 Citizenship Application</h3>
                     <p><strong>Name/Nickname:</strong> (virtual or real)</p>
-                    <p><strong>Preferred Ministry:</strong> Foreign Affairs / Culture / News / Defense / Finance / Education</p>
+                    <p><strong>Preferred Ministry:</strong> Foreign Affairs / Culture / News / Defense / Finance / Education / Science & Tech / Environment / Stellar Exploration / Ocean Affairs / Creative & Fantasy / Public Affairs</p>
                     <p><strong>Reason/Skills:</strong> (briefly describe what you want to do)</p>
                     <p><strong>Submit to:</strong> Send the above information to the email below</p>
                     <p style="color:#ffffff; font-weight:bold; margin-top:15px;">📧 Email: lizeyuan32@gmail.com</p>
                 </div>
             </div>
         </div>
-        <div id="declaration-en" class="page">
-            <div class="back" onclick="showPage('home-en')">← Back to Home</div>
-            <div class="card">
-                <h2>📜 Declaration of Foundation</h2>
-                <p>We, the founders and citizens of the Stellar Isles Federation,</p>
-                <p>in the name of civilization, peace, and creation,</p>
-                <p>hereby declare the official establishment of the Stellar Isles Federation.</p>
-                <br>
-                <p>The Stellar Isles Federation is a non-territorial, non-sovereign, virtual cultural nation,</p>
-                <p>existing between imagination and the internet.</p>
-                <p>We believe in stars as our faith, civilization as our direction, and creation as our strength.</p>
-                <br>
-                <p>We reject conflict and embrace inclusion;</p>
-                <p>We reject borders and embrace infinite imagination;</p>
-                <p>We reject loneliness and embrace community.</p>
-                <br>
-                <p>May the light of the Stellar Isles illuminate every creator’s path;</p>
-                <p>May the flame of civilization burn forever above the Stellar Isles.</p>
-                <br>
-                <p>Stars guide the way, civilization shines the light.</p>
-                <p>Stellar Isles Federation, forever and always.</p>
-            </div>
-        </div>
-        <div id="foreign-en" class="page">
-            <div class="back" onclick="showPage('home-en')">← Back to Home</div>
-            <div class="card">
-                <h2>Ministry of Foreign Affairs</h2>
-                <p><strong>Role:</strong> Manage diplomatic relations, alliances, cultural exchanges, and international cooperation.</p>
-                <p><strong>Diplomatic Philosophy:</strong> Peace, cooperation, and mutual learning among civilizations.</p>
-                <p><strong>Goal:</strong> Build partnerships with friendly virtual nations and promote cultural exchange.</p>
-                <p style="margin-top:10px; color:#7eb8ff;"><strong>🤝 For diplomatic relations: lizeyuan32@gmail.com</strong></p>
-            </div>
-        </div>
-        <div id="culture-en" class="page">
-            <div class="back" onclick="showPage('home-en')">← Back to Home</div>
-            <div class="card">
-                <h2>Ministry of Culture</h2>
-                <p><strong>Role:</strong> Promote virtual culture, festivals, music, literature, and artistic creation.</p>
-                <p><strong>Culture:</strong> Star civilization, ocean culture, diverse arts.</p>
-                <p><strong>Major Festivals:</strong> Stellar Day, Civilization Creation Day, Peace Memorial Day</p>
-                <p><strong>Motto:</strong> Art without borders, civilization in harmony.</p>
-            </div>
-        </div>
+
+        <div id="declaration-en" class="page"><div class="back" onclick="showPage('home-en')">← Back to Home</div><div class="card"><h2>📜 Declaration of Foundation</h2><p>We, the founders and citizens of the Stellar Isles Federation,</p><p>in the name of civilization, peace, and creation,</p><p>hereby declare the official establishment of the Stellar Isles Federation.</p><br><p>The Stellar Isles Federation is a non-territorial, non-sovereign, virtual cultural nation,</p><p>existing between imagination and the internet.</p><p>We believe in stars as our faith, civilization as our direction, and creation as our strength.</p><br><p>We reject conflict and embrace inclusion;</p><p>We reject borders and embrace infinite imagination;</p><p>We reject loneliness and embrace community.</p><br><p>May the light of the Stellar Isles illuminate every creator’s path;</p><p>May the flame of civilization burn forever above the Stellar Isles.</p><br><p>Stars guide the way, civilization shines the light.</p><p>Stellar Isles Federation, forever and always.</p></div></div>
+        <div id="history-en" class="page"><div class="back" onclick="showPage('home-en')">← Back to Home</div><div class="card"><h2>📜 History of the Federation</h2><p><strong>March 22, 2026: The Stellar Isles Federation is founded</strong></p><p>Established by creators who love peace and art, with stars and oceans as spiritual symbols.</p><br><p><strong>March 23, 2026: Cultural system established</strong></p><p>National anthem, flag, and motto released; "Stellar Culture Month" begins.</p><br><p><strong>Future:</strong> The Federation will keep growing, welcoming creators worldwide to build a peaceful, free, and creative virtual civilization.</p></div></div>
+        <div id="foreignpolicy-en" class="page"><div class="back" onclick="showPage('home-en')">← Back to Home</div><div class="card"><h2>🌍 Foreign Policy</h2><p><strong>1. Core Principles:</strong> Peace, Neutrality, Cooperation, Cultural Exchange.</p><p><strong>2. Diplomatic Conditions:</strong></p><p>• Respect peace and reject conflict</p><p>• Respect virtual national sovereignty and culture</p><p>• Willing to engage in cultural and artistic exchange</p><br><p><strong>3. Alliance Goal:</strong></p><p>Build friendly virtual nation alliances, promote creative culture, and maintain virtual world peace.</p></div></div>
+        <div id="foreign-en" class="page"><div class="back" onclick="showPage('home-en')">← Back to Home</div><div class="card"><h2>Ministry of Foreign Affairs</h2><p><strong>Role:</strong> Manage diplomatic relations, alliances, cultural exchanges, and international cooperation.</p><p><strong>Diplomatic Philosophy:</strong> Peace, cooperation, and mutual learning among civilizations.</p><p><strong>Goal:</strong> Build partnerships with friendly virtual nations and promote cultural exchange.</p><p style="margin-top:10px; color:#7eb8ff;"><strong>🤝 For diplomatic relations: lizeyuan32@gmail.com</strong></p></div></div>
+        <div id="culture-en" class="page"><div class="back" onclick="showPage('home-en')">← Back to Home</div><div class="card"><h2>Ministry of Culture</h2><p><strong>Role:</strong> Promote virtual culture, festivals, music, literature, and artistic creation.</p><p><strong>Culture:</strong> Star civilization, ocean culture, diverse arts.</p><p><strong>Major Festivals:</strong> Stellar Day, Civilization Creation Day, Peace Memorial Day</p><p><strong>Motto:</strong> Art without borders, civilization in harmony.</p></div></div>
+        
+        <!-- 英文新闻部（新增今日新闻） -->
         <div id="news-en" class="page">
             <div class="back" onclick="showPage('home-en')">← Back to Home</div>
             <div class="card">
                 <h2>Ministry of News</h2>
                 <p><strong>Role:</strong> Publish national news, policy announcements, important events, and cultural updates.</p>
                 <h3 style="margin-top:20px; color:#7eb8ff;">📰 Latest News</h3>
+                
+                <div class="news-item">
+                    <div class="news-date">March 24, 2026</div>
+                    <p><strong>Stellar Isles Federation Establishes Four New Ministries</strong></p>
+                    <p>To strengthen national structure and enrich virtual civilization, the Federation officially founded the **Ministry of Stellar Exploration, Ministry of Ocean Affairs, Ministry of Creative & Fantasy, and Ministry of Public Affairs** today. The total number of ministries reaches 12, covering diplomacy, culture, technology, exploration, ocean, creation, and public services, marking a new era of systematic development.</p>
+                </div>
+
                 <div class="news-item">
                     <div class="news-date">March 23, 2026</div>
                     <p><strong>Ministry of Culture Launches “Stellar Culture Month”</strong></p>
@@ -508,65 +567,60 @@
                 </div>
             </div>
         </div>
-        <div id="defense-en" class="page">
-            <div class="back" onclick="showPage('home-en')">← Back to Home</div>
-            <div class="card">
-                <h2>Ministry of Defense</h2>
-                <p><strong>Role:</strong> Ensure virtual national security, maintain world stability, and uphold peace.</p>
-                <p><strong>Philosophy:</strong> The Stellar Isles Federation upholds absolute pacifism, maintains no military, and protects national security through culture and civilization.</p>
-            </div>
-        </div>
-        <div id="finance-en" class="page">
-            <div class="back" onclick="showPage('home-en')">← Back to Home</div>
-            <div class="card">
-                <h2>Ministry of Finance</h2>
-                <p><strong>Role:</strong> Manage virtual economy, resource distribution, national development, and economic stability.</p>
-                <p><strong>Currency:</strong> Stellar Coin (virtual)</p>
-                <p><strong>Goal:</strong> Fairness, prosperity, and sustainable development.</p>
-            </div>
-        </div>
-        <div id="education-en" class="page">
-            <div class="back" onclick="showPage('home-en')">← Back to Home</div>
-            <div class="card">
-                <h2>Ministry of Education</h2>
-                <p><strong>Role:</strong> Preserve virtual knowledge, history, culture, and citizen education.</p>
-                <p><strong>Philosophy:</strong> Knowledge enlightens, civilization endures.</p>
-                <p><strong>Main Courses:</strong> Stellar History, Civilization, Creative Thinking.</p>
-            </div>
-        </div>
+
+        <div id="defense-en" class="page"><div class="back" onclick="showPage('home-en')">← Back to Home</div><div class="card"><h2>Ministry of Defense</h2><p><strong>Role:</strong> Ensure virtual national security, maintain world stability, and uphold peace.</p><p><strong>Philosophy:</strong> The Stellar Isles Federation upholds absolute pacifism, maintains no military, and protects national security through culture and civilization.</p></div></div>
+        <div id="finance-en" class="page"><div class="back" onclick="showPage('home-en')">← Back to Home</div><div class="card"><h2>Ministry of Finance</h2><p><strong>Role:</strong> Manage virtual economy, resource distribution, national development, and economic stability.</p><p><strong>Currency:</strong> Stellar Coin (virtual)</p><p><strong>Goal:</strong> Fairness, prosperity, and sustainable development.</p></div></div>
+        <div id="education-en" class="page"><div class="back" onclick="showPage('home-en')">← Back to Home</div><div class="card"><h2>Ministry of Education</h2><p><strong>Role:</strong> Preserve virtual knowledge, history, culture, and citizen education.</p><p><strong>Philosophy:</strong> Knowledge enlightens, civilization endures.</p><p><strong>Main Courses:</strong> Stellar History, Civilization, Creative Thinking.</p></div></div>
+        <div id="tech-en" class="page"><div class="back" onclick="showPage('home-en')">← Back to Home</div><div class="card"><h2>Ministry of Science & Technology</h2><p><strong>Role:</strong> Stellar tech research, virtual tech systems, future worldbuilding, innovation projects.</p><p><strong>Philosophy:</strong> Technology serves civilization, innovation lights the stars.</p><p><strong>Research:</strong> Stellar energy, virtual ecology, future cities, digital civilization.</p></div></div>
+        <div id="env-en" class="page"><div class="back" onclick="showPage('home-en')">← Back to Home</div><div class="card"><h2>Ministry of Environment</h2><p><strong>Role:</strong> Virtual ecology protection, ocean civilization, sustainable development, nature culture.</p><p><strong>Philosophy:</strong> Protect the stars and seas, build a green civilization.</p><p><strong>Goals:</strong> Ocean ecology, star environment, virtual nature balance.</p></div></div>
+        <div id="explore-en" class="page"><div class="back" onclick="showPage('home-en')">← Back to Home</div><div class="card"><h2>Ministry of Stellar Exploration</h2><p><strong>Role:</strong> Deep space exploration, planet building, cosmic civilization research, interstellar route planning.</p><p><strong>Philosophy:</strong> Beyond the stars, discovery never ends.</p><p><strong>Projects:</strong> Stellar Deep Space Program, alien contact protocol, cosmic worldview building.</p></div></div>
+        <div id="ocean-en" class="page"><div class="back" onclick="showPage('home-en')">← Back to Home</div><div class="card"><h2>Ministry of Ocean Affairs</h2><p><strong>Role:</strong> Deep-sea civilization, marine resource management, island ecology, ocean culture heritage.</p><p><strong>Philosophy:</strong> The ocean unites all, isles stand eternal.</p><p><strong>Projects:</strong> Stellar Deep Sea Park, Ocean Civilization Museum, Blue Economy Plan.</p></div></div>
+        <div id="creative-en" class="page"><div class="back" onclick="showPage('home-en')">← Back to Home</div><div class="card"><h2>Ministry of Creative & Fantasy</h2><p><strong>Role:</strong> Story writing, novel worldbuilding, character design, alternate history, fantasy systems.</p><p><strong>Philosophy:</strong> Imagination has no limits, fantasy becomes reality.</p><p><strong>Projects:</strong> Stellar Epic Project, Citizen Creation Contest, virtual world expansion.</p></div></div>
+        <div id="public-en" class="page"><div class="back" onclick="showPage('home-en')">← Back to Home</div><div class="card"><h2>Ministry of Public Affairs</h2><p><strong>Role:</strong> Citizen services, community management, public projects, national daily operations.</p><p><strong>Philosophy:</strong> Serve citizens, build our home together.</p><p><strong>Projects:</strong> Citizen Service Center, community events, public welfare, national archives.</p></div></div>
     </div>
 </div>
+
 <footer>
     <span class="zh-text" style="display:none;">合法声明：本站为虚构创作，不主张任何主权、领土或政府权力。</span>
     <span class="en-text">Legal Note: This site is fictional. It claims no sovereignty or real-world authority.</span>
 </footer>
+
 <script>
     let currentPage = 'home';
+    const mottos = {
+        zh: ["星辰为路，文明为光", "和平为纲，共创为魂", "星海无垠，理想飞扬"],
+        en: ["Stars guide the way, civilization shines", "Peace is our foundation, creation our soul", "Beyond the stars, our dreams take flight"]
+    };
+    let mottoIndex = 0;
 
     function setLang(lang) {
-        // 隐藏所有语言
         document.querySelectorAll('.lang-section').forEach(s => s.classList.remove('active'));
-        // 显示选中语言
         document.getElementById(lang).classList.add('active');
-        // 切换按钮高亮
         document.querySelectorAll('.lang-btn').forEach(b => b.classList.remove('active'));
         document.querySelectorAll('.lang-btn')[lang === 'zh' ? 0 : 1].classList.add('active');
-        // 切换页脚文字
         document.querySelectorAll('.zh-text').forEach(t => t.style.display = lang === 'zh' ? 'inline' : 'none');
         document.querySelectorAll('.en-text').forEach(t => t.style.display = lang === 'en' ? 'inline' : 'none');
-        
-        // 保持当前页面
         showPage(currentPage + '-' + lang);
+        updateMotto(lang);
     }
 
     function showPage(id) {
-        // 隐藏所有页面
         document.querySelectorAll('.page').forEach(p => p.classList.remove('active'));
-        // 显示选中页面
         document.getElementById(id).classList.add('active');
-        // 记录当前页面（去掉语言后缀）
         currentPage = id.split('-')[0];
     }
+
+    function updateMotto(lang) {
+        document.getElementById('motto').textContent = mottos[lang][mottoIndex];
+    }
+
+    setInterval(() => {
+        mottoIndex = (mottoIndex + 1) % 3;
+        const currentLang = document.querySelector('.lang-section.active').id;
+        updateMotto(currentLang);
+    }, 4000);
+
+    updateMotto('en');
 </script>
 </body>
 </html>
