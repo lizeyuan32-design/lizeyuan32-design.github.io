@@ -62,6 +62,11 @@
             width: 160px;
             height: 160px;
             margin: 20px auto;
+            animation: pulse 4s infinite ease-in-out;
+        }
+        @keyframes pulse {
+            0%, 100% { transform: scale(1); opacity: 0.9; }
+            50% { transform: scale(1.05); opacity: 1; }
         }
         .flag {
             width: 220px;
@@ -70,6 +75,21 @@
             border-radius: 8px;
             overflow: hidden;
             box-shadow: 0 0 20px rgba(74, 144, 226, 0.4);
+            position: relative;
+        }
+        .flag::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.15), transparent);
+            animation: wave 6s infinite linear;
+        }
+        @keyframes wave {
+            0% { left: -100%; }
+            100% { left: 100%; }
         }
         .container {
             max-width: 900px;
@@ -208,6 +228,48 @@
             font-style: italic;
             color: #cfe0ff;
         }
+        .law-list {
+            margin-top: 15px;
+            padding-left: 20px;
+        }
+        .law-list li {
+            margin-bottom: 8px;
+            color: #d0d9ee;
+        }
+        .assembly-box {
+            background: #1e2a44;
+            padding: 18px;
+            border-radius: 10px;
+            margin-top: 10px;
+            border-left: 4px solid #4a90e2;
+        }
+        .currency-box {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            margin-top: 10px;
+        }
+        .currency-icon {
+            width: 50px;
+            height: 50px;
+            background: #4a90e2;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 24px;
+            font-weight: bold;
+            color: white;
+        }
+        .archive-list {
+            margin-top: 10px;
+        }
+        .archive-item {
+            padding: 10px;
+            background: #1b2540;
+            border-radius: 8px;
+            margin-bottom: 8px;
+        }
     </style>
 </head>
 <body>
@@ -265,6 +327,10 @@
                 <div class="btn" onclick="showPage('declaration-zh')">📜 阅读建国宣言</div>
                 <div class="btn" onclick="showPage('history-zh')">📜 联邦历史</div>
                 <div class="btn" onclick="showPage('foreignpolicy-zh')">🌍 外交政策</div>
+                <div class="btn" onclick="showPage('constitution-zh')">⚖️ 联邦宪法</div>
+                <div class="btn" onclick="showPage('assembly-zh')">🏛️ 联邦议会</div>
+                <div class="btn" onclick="showPage('currency-zh')">💰 星币体系</div>
+                <div class="btn" onclick="showPage('archive-zh')">📚 国家档案</div>
             </div>
 
             <div class="card">
@@ -287,7 +353,7 @@
             </div>
 
             <div class="card">
-                <h2>联邦部门</h2>
+                <h2>联邦部门（12个）</h2>
                 <div class="ministries">
                     <div class="ministry" onclick="showPage('foreign-zh')">
                         <h3>外交部</h3>
@@ -359,44 +425,13 @@
             </div>
         </div>
 
+        <!-- 原有页面省略（保持不变） -->
         <div id="declaration-zh" class="page"><div class="back" onclick="showPage('home-zh')">← 返回首页</div><div class="card"><h2>📜 星屿联邦建国宣言</h2><p>我们，星屿联邦的创造者与公民，</p><p>谨以文明、和平、创造之名，</p><p>宣告星屿联邦正式成立。</p><br><p>星屿联邦是一个无领土、无主权、无政治诉求的虚拟文化国家，</p><p>存在于想象与网络之间，</p><p>以星辰为信仰，以文明为方向，以共创为力量。</p><br><p>我们拒绝纷争，拥抱包容；</p><p>我们拒绝现实边界，拥抱无限想象；</p><p>我们拒绝孤独，拥抱共同体。</p><br><p>愿星屿之光，照亮每一位创作者的道路；</p><p>愿文明之火，永远在星屿之上燃烧。</p><br><p>星辰为路，文明为光。</p><p>星屿联邦，永世长存。</p></div></div>
         <div id="history-zh" class="page"><div class="back" onclick="showPage('home-zh')">← 返回首页</div><div class="card"><h2>📜 星屿联邦历史</h2><p><strong>2026年3月22日：星屿联邦正式成立</strong></p><p>由一群热爱创作、向往和平的创作者共同建立，以星辰与海洋为精神图腾。</p><br><p><strong>2026年3月23日：文化体系初步建立</strong></p><p>发布国歌、国旗、国家格言，开启“星屿文化月”。</p><br><p><strong>未来：</strong>星屿联邦将持续发展，吸引更多创作者加入，构建一个和平、自由、共创的虚拟文明。</p></div></div>
         <div id="foreignpolicy-zh" class="page"><div class="back" onclick="showPage('home-zh')">← 返回首页</div><div class="card"><h2>🌍 星屿联邦外交政策</h2><p><strong>一、核心原则：</strong>和平、中立、合作、文明互鉴。</p><p><strong>二、建交条件：</strong></p><p>• 认同和平理念，不主张冲突与战争</p><p>• 尊重虚拟国家主权与文化</p><p>• 愿意进行文化、艺术、创作交流</p><br><p><strong>三、联盟目标：</strong></p><p>建立友好虚拟国家联盟，共同推动创作文化发展，维护虚拟世界和平。</p></div></div>
         <div id="foreign-zh" class="page"><div class="back" onclick="showPage('home-zh')">← 返回首页</div><div class="card"><h2>外交部 · Ministry of Foreign Affairs</h2><p><strong>职责：</strong>负责虚拟外交关系、联盟建立、文化交流、国际合作设定。</p><p><strong>外交理念：</strong>和平、合作、文明互鉴。</p><p><strong>外交目标：</strong>与友好虚拟国家建立合作，推动文明交流。</p><p style="margin-top:10px; color:#7eb8ff;"><strong>🤝 若其他虚拟国家要与本国建交，致电：lizeyuan32@gmail.com</strong></p></div></div>
         <div id="culture-zh" class="page"><div class="back" onclick="showPage('home-zh')">← 返回首页</div><div class="card"><h2>文化部 · Ministry of Culture</h2><p><strong>职责：</strong>推广虚拟文化、节日、音乐、文学、艺术创作。</p><p><strong>文化特色：</strong>星辰文明、海洋文化、多元艺术。</p><p><strong>主要节日：</strong>星屿节、文明共创日、和平纪念日</p><p><strong>文化口号：</strong>艺术无界，文明共生。</p></div></div>
-        
-        <!-- 中文新闻部（新增今日新闻） -->
-        <div id="news-zh" class="page">
-            <div class="back" onclick="showPage('home-zh')">← 返回首页</div>
-            <div class="card">
-                <h2>新闻部 · Ministry of News</h2>
-                <p><strong>职责：</strong>发布国家新闻、政策公告、重要事件、文化动态。</p>
-                <h3 style="margin-top:20px; color:#7eb8ff;">📰 最新新闻</h3>
-                
-                <div class="news-item">
-                    <div class="news-date">2026年3月24日</div>
-                    <p><strong>星屿联邦新增四大部门，国家体系全面完善</strong></p>
-                    <p>为进一步完善国家架构、丰富虚拟文明内涵，星屿联邦今日正式成立**星际探索部、海洋事务部、创意与幻想部、公共事务部**四大部门。联邦部门总数增至12个，涵盖外交、文化、科技、探索、海洋、创作、公共服务等全领域，标志着星屿联邦进入系统化、完整化发展新阶段。</p>
-                </div>
-
-                <div class="news-item">
-                    <div class="news-date">2026年3月23日</div>
-                    <p><strong>文化部推出“星屿文化月”活动</strong></p>
-                    <p>为推广虚拟文化，文化部宣布3月为“星屿文化月”，将陆续发布国歌、国旗、国家格言等文化内容，增强公民归属感。</p>
-                </div>
-                <div class="news-item">
-                    <div class="news-date">2026年3月22日</div>
-                    <p><strong>星屿联邦正式成立！</strong></p>
-                    <p>今日，星屿联邦虚拟国家正式上线，欢迎所有创作者加入！</p>
-                </div>
-                <div class="news-item">
-                    <div class="news-date">2026年3月22日</div>
-                    <p><strong>外交部启动联盟计划</strong></p>
-                    <p>外交部宣布开启虚拟国家联盟计划，欢迎友好国家建交。</p>
-                </div>
-            </div>
-        </div>
-
+        <div id="news-zh" class="page"><div class="back" onclick="showPage('home-zh')">← 返回首页</div><div class="card"><h2>新闻部 · Ministry of News</h2><p><strong>职责：</strong>发布国家新闻、政策公告、重要事件、文化动态。</p><h3 style="margin-top:20px; color:#7eb8ff;">📰 最新新闻</h3><div class="news-item"><div class="news-date">2026年3月24日</div><p><strong>星屿联邦新增四大部门，国家体系全面完善</strong></p><p>为进一步完善国家架构、丰富虚拟文明内涵，星屿联邦今日正式成立**星际探索部、海洋事务部、创意与幻想部、公共事务部**四大部门。联邦部门总数增至12个，涵盖外交、文化、科技、探索、海洋、创作、公共服务等全领域，标志着星屿联邦进入系统化、完整化发展新阶段。</p></div><div class="news-item"><div class="news-date">2026年3月23日</div><p><strong>文化部推出“星屿文化月”活动</strong></p><p>为推广虚拟文化，文化部宣布3月为“星屿文化月”，将陆续发布国歌、国旗、国家格言等文化内容，增强公民归属感。</p></div><div class="news-item"><div class="news-date">2026年3月22日</div><p><strong>星屿联邦正式成立！</strong></p><p>今日，星屿联邦虚拟国家正式上线，欢迎所有创作者加入！</p></div><div class="news-item"><div class="news-date">2026年3月22日</div><p><strong>外交部启动联盟计划</strong></p><p>外交部宣布开启虚拟国家联盟计划，欢迎友好国家建交。</p></div></div></div>
         <div id="defense-zh" class="page"><div class="back" onclick="showPage('home-zh')">← 返回首页</div><div class="card"><h2>国防部 · Ministry of Defense</h2><p><strong>职责：</strong>虚拟国家安全、战略设定、世界观维护、和平保障。</p><p><strong>国防理念：</strong>星屿联邦奉行绝对和平主义，不设军队，不参与冲突，以文化与文明力量维护国家安全。</p></div></div>
         <div id="finance-zh" class="page"><div class="back" onclick="showPage('home-zh')">← 返回首页</div><div class="card"><h2>财政部 · Ministry of Finance</h2><p><strong>职责：</strong>虚拟经济体系、资源分配、国家发展规划、经济稳定。</p><p><strong>货币单位：</strong>星币（虚拟）</p><p><strong>经济目标：</strong>公平、繁荣、可持续发展。</p></div></div>
         <div id="education-zh" class="page"><div class="back" onclick="showPage('home-zh')">← 返回首页</div><div class="card"><h2>教育部 · Ministry of Education</h2><p><strong>职责：</strong>虚拟知识体系、历史传承、文化教育、公民素养。</p><p><strong>教育理念：</strong>知识启智，文明传承。</p><p><strong>主要课程：</strong>星屿历史、文明概论、创意思维。</p></div></div>
@@ -406,6 +441,66 @@
         <div id="ocean-zh" class="page"><div class="back" onclick="showPage('home-zh')">← 返回首页</div><div class="card"><h2>海洋事务部 · Ministry of Ocean Affairs</h2><p><strong>职责：</strong>深海文明建设、海洋资源管理、海岛生态保护、海洋文化传承。</p><p><strong>海洋理念：</strong>海纳百川，屿立千秋。</p><p><strong>核心项目：</strong>星屿深海公园、海洋文明博物馆、蓝色经济规划。</p></div></div>
         <div id="creative-zh" class="page"><div class="back" onclick="showPage('home-zh')">← 返回首页</div><div class="card"><h2>创意与幻想部 · Ministry of Creative & Fantasy</h2><p><strong>职责：</strong>故事创作、小说世界观、角色设定、架空历史、幻想体系构建。</p><p><strong>创意理念：</strong>想象无界，幻想成真。</p><p><strong>核心项目：</strong>星屿史诗计划、公民创作大赛、虚拟世界扩展。</p></div></div>
         <div id="public-zh" class="page"><div class="back" onclick="showPage('home-zh')">← 返回首页</div><div class="card"><h2>公共事务部 · Ministry of Public Affairs</h2><p><strong>职责：</strong>公民服务、社区管理、公共项目协调、国家日常运作、秩序维护。</p><p><strong>公共理念：</strong>服务公民，共建家园。</p><p><strong>核心项目：</strong>公民服务中心、社区活动、公共福利、国家档案管理。</p></div></div>
+
+        <!-- 新增页面：宪法、议会、货币、档案（中文） -->
+        <div id="constitution-zh" class="page">
+            <div class="back" onclick="showPage('home-zh')">← 返回首页</div>
+            <div class="card">
+                <h2>⚖️ 星屿联邦宪法</h2>
+                <p><strong>序言：</strong>为维护星屿联邦的和平、自由与共创精神，特制定本宪法，作为国家最高准则。</p>
+                <ul class="law-list">
+                    <li>第一条：星屿联邦坚持和平、中立、共创、文明的核心价值观。</li>
+                    <li>第二条：所有公民一律平等，享有创作、表达、参与国家建设的权利。</li>
+                    <li>第三条：国家禁止任何形式的冲突、歧视与暴力，倡导包容与合作。</li>
+                    <li>第四条：联邦各部门依法运作，服务公民与文明发展。</li>
+                    <li>第五条：本宪法为虚拟国家准则，不具备现实法律效力。</li>
+                </ul>
+            </div>
+        </div>
+
+        <div id="assembly-zh" class="page">
+            <div class="back" onclick="showPage('home-zh')">← 返回首页</div>
+            <div class="card">
+                <h2>🏛️ 联邦议会</h2>
+                <p><strong>议会职能：</strong>讨论国家政策、审议提案、发布公告、维护联邦秩序。</p>
+                <p><strong>组成：</strong>各部门代表、公民代表、创意顾问。</p>
+                <div class="assembly-box">
+                    <p><strong>当前提案：</strong>《星屿文化扩展计划》《虚拟外交联盟草案》</p>
+                    <p><strong>投票方式：</strong>公民意见收集 + 议会表决</p>
+                </div>
+            </div>
+        </div>
+
+        <div id="currency-zh" class="page">
+            <div class="back" onclick="showPage('home-zh')">← 返回首页</div>
+            <div class="card">
+                <h2>💰 星币（Stellar Coin）体系</h2>
+                <div class="currency-box">
+                    <div class="currency-icon">S</div>
+                    <div>
+                        <p><strong>货币名称：</strong>星币（Stellar Coin, SC）</p>
+                        <p><strong>发行机构：</strong>星屿联邦财政部</p>
+                        <p><strong>用途：</strong>虚拟经济、文化奖励、项目资助、公民福利</p>
+                    </div>
+                </div>
+                <p style="margin-top:15px;"><strong>经济理念：</strong>公平分配、鼓励创作、可持续发展。</p>
+            </div>
+        </div>
+
+        <div id="archive-zh" class="page">
+            <div class="back" onclick="showPage('home-zh')">← 返回首页</div>
+            <div class="card">
+                <h2>📚 国家档案库</h2>
+                <p>收录星屿联邦所有官方文件、历史记录、政策公告、文化资料。</p>
+                <div class="archive-list">
+                    <div class="archive-item">📜 《星屿联邦建国宣言》（2026.3.22）</div>
+                    <div class="archive-item">📜 《联邦宪法》（2026.3.24）</div>
+                    <div class="archive-item">📜 《外交政策白皮书》</div>
+                    <div class="archive-item">📜 《12部门职责总纲》</div>
+                    <div class="archive-item">📜 《星屿文化发展规划》</div>
+                </div>
+            </div>
+        </div>
     </div>
 
     <!-- 英文内容 -->
@@ -436,6 +531,10 @@
                 <div class="btn" onclick="showPage('declaration-en')">📜 Read Declaration</div>
                 <div class="btn" onclick="showPage('history-en')">📜 Federation History</div>
                 <div class="btn" onclick="showPage('foreignpolicy-en')">🌍 Foreign Policy</div>
+                <div class="btn" onclick="showPage('constitution-en')">⚖️ Constitution</div>
+                <div class="btn" onclick="showPage('assembly-en')">🏛️ Federal Assembly</div>
+                <div class="btn" onclick="showPage('currency-en')">💰 Stellar Coin</div>
+                <div class="btn" onclick="showPage('archive-en')">📚 National Archives</div>
             </div>
 
             <div class="card">
@@ -458,7 +557,7 @@
             </div>
 
             <div class="card">
-                <h2>Federal Ministries </h2>
+                <h2>Federal Ministries (12)</h2>
                 <div class="ministries">
                     <div class="ministry" onclick="showPage('foreign-en')">
                         <h3>Foreign Affairs</h3>
@@ -530,44 +629,13 @@
             </div>
         </div>
 
+        <!-- 原有英文页面省略 -->
         <div id="declaration-en" class="page"><div class="back" onclick="showPage('home-en')">← Back to Home</div><div class="card"><h2>📜 Declaration of Foundation</h2><p>We, the founders and citizens of the Stellar Isles Federation,</p><p>in the name of civilization, peace, and creation,</p><p>hereby declare the official establishment of the Stellar Isles Federation.</p><br><p>The Stellar Isles Federation is a non-territorial, non-sovereign, virtual cultural nation,</p><p>existing between imagination and the internet.</p><p>We believe in stars as our faith, civilization as our direction, and creation as our strength.</p><br><p>We reject conflict and embrace inclusion;</p><p>We reject borders and embrace infinite imagination;</p><p>We reject loneliness and embrace community.</p><br><p>May the light of the Stellar Isles illuminate every creator’s path;</p><p>May the flame of civilization burn forever above the Stellar Isles.</p><br><p>Stars guide the way, civilization shines the light.</p><p>Stellar Isles Federation, forever and always.</p></div></div>
         <div id="history-en" class="page"><div class="back" onclick="showPage('home-en')">← Back to Home</div><div class="card"><h2>📜 History of the Federation</h2><p><strong>March 22, 2026: The Stellar Isles Federation is founded</strong></p><p>Established by creators who love peace and art, with stars and oceans as spiritual symbols.</p><br><p><strong>March 23, 2026: Cultural system established</strong></p><p>National anthem, flag, and motto released; "Stellar Culture Month" begins.</p><br><p><strong>Future:</strong> The Federation will keep growing, welcoming creators worldwide to build a peaceful, free, and creative virtual civilization.</p></div></div>
         <div id="foreignpolicy-en" class="page"><div class="back" onclick="showPage('home-en')">← Back to Home</div><div class="card"><h2>🌍 Foreign Policy</h2><p><strong>1. Core Principles:</strong> Peace, Neutrality, Cooperation, Cultural Exchange.</p><p><strong>2. Diplomatic Conditions:</strong></p><p>• Respect peace and reject conflict</p><p>• Respect virtual national sovereignty and culture</p><p>• Willing to engage in cultural and artistic exchange</p><br><p><strong>3. Alliance Goal:</strong></p><p>Build friendly virtual nation alliances, promote creative culture, and maintain virtual world peace.</p></div></div>
         <div id="foreign-en" class="page"><div class="back" onclick="showPage('home-en')">← Back to Home</div><div class="card"><h2>Ministry of Foreign Affairs</h2><p><strong>Role:</strong> Manage diplomatic relations, alliances, cultural exchanges, and international cooperation.</p><p><strong>Diplomatic Philosophy:</strong> Peace, cooperation, and mutual learning among civilizations.</p><p><strong>Goal:</strong> Build partnerships with friendly virtual nations and promote cultural exchange.</p><p style="margin-top:10px; color:#7eb8ff;"><strong>🤝 For diplomatic relations: lizeyuan32@gmail.com</strong></p></div></div>
         <div id="culture-en" class="page"><div class="back" onclick="showPage('home-en')">← Back to Home</div><div class="card"><h2>Ministry of Culture</h2><p><strong>Role:</strong> Promote virtual culture, festivals, music, literature, and artistic creation.</p><p><strong>Culture:</strong> Star civilization, ocean culture, diverse arts.</p><p><strong>Major Festivals:</strong> Stellar Day, Civilization Creation Day, Peace Memorial Day</p><p><strong>Motto:</strong> Art without borders, civilization in harmony.</p></div></div>
-        
-        <!-- 英文新闻部（新增今日新闻） -->
-        <div id="news-en" class="page">
-            <div class="back" onclick="showPage('home-en')">← Back to Home</div>
-            <div class="card">
-                <h2>Ministry of News</h2>
-                <p><strong>Role:</strong> Publish national news, policy announcements, important events, and cultural updates.</p>
-                <h3 style="margin-top:20px; color:#7eb8ff;">📰 Latest News</h3>
-                
-                <div class="news-item">
-                    <div class="news-date">March 24, 2026</div>
-                    <p><strong>Stellar Isles Federation Establishes Four New Ministries</strong></p>
-                    <p>To strengthen national structure and enrich virtual civilization, the Federation officially founded the **Ministry of Stellar Exploration, Ministry of Ocean Affairs, Ministry of Creative & Fantasy, and Ministry of Public Affairs** today. The total number of ministries reaches 12, covering diplomacy, culture, technology, exploration, ocean, creation, and public services, marking a new era of systematic development.</p>
-                </div>
-
-                <div class="news-item">
-                    <div class="news-date">March 23, 2026</div>
-                    <p><strong>Ministry of Culture Launches “Stellar Culture Month”</strong></p>
-                    <p>The Ministry of Culture announced March as “Stellar Culture Month,” releasing national anthems, flags, and mottos to strengthen cultural identity.</p>
-                </div>
-                <div class="news-item">
-                    <div class="news-date">March 22, 2026</div>
-                    <p><strong>Stellar Isles Federation Officially Founded!</strong></p>
-                    <p>Today, the Stellar Isles Federation launches. Welcome all creators!</p>
-                </div>
-                <div class="news-item">
-                    <div class="news-date">March 22, 2026</div>
-                    <p><strong>Foreign Ministry Launches Alliance Program</strong></p>
-                    <p>The Foreign Ministry opens alliance applications to friendly nations.</p>
-                </div>
-            </div>
-        </div>
-
+        <div id="news-en" class="page"><div class="back" onclick="showPage('home-en')">← Back to Home</div><div class="card"><h2>Ministry of News</h2><p><strong>Role:</strong> Publish national news, policy announcements, important events, and cultural updates.</p><h3 style="margin-top:20px; color:#7eb8ff;">📰 Latest News</h3><div class="news-item"><div class="news-date">March 24, 2026</div><p><strong>Stellar Isles Federation Establishes Four New Ministries</strong></p><p>To strengthen national structure and enrich virtual civilization, the Federation officially founded the **Ministry of Stellar Exploration, Ministry of Ocean Affairs, Ministry of Creative & Fantasy, and Ministry of Public Affairs** today. The total number of ministries reaches 12, covering diplomacy, culture, technology, exploration, ocean, creation, and public services, marking a new era of systematic development.</p></div><div class="news-item"><div class="news-date">March 23, 2026</div><p><strong>Ministry of Culture Launches “Stellar Culture Month”</strong></p><p>The Ministry of Culture announced March as “Stellar Culture Month,” releasing national anthems, flags, and mottos to strengthen cultural identity.</p></div><div class="news-item"><div class="news-date">March 22, 2026</div><p><strong>Stellar Isles Federation Officially Founded!</strong></p><p>Today, the Stellar Isles Federation launches. Welcome all creators!</p></div><div class="news-item"><div class="news-date">March 22, 2026</div><p><strong>Foreign Ministry Launches Alliance Program</strong></p><p>The Foreign Ministry opens alliance applications to friendly nations.</p></div></div></div>
         <div id="defense-en" class="page"><div class="back" onclick="showPage('home-en')">← Back to Home</div><div class="card"><h2>Ministry of Defense</h2><p><strong>Role:</strong> Ensure virtual national security, maintain world stability, and uphold peace.</p><p><strong>Philosophy:</strong> The Stellar Isles Federation upholds absolute pacifism, maintains no military, and protects national security through culture and civilization.</p></div></div>
         <div id="finance-en" class="page"><div class="back" onclick="showPage('home-en')">← Back to Home</div><div class="card"><h2>Ministry of Finance</h2><p><strong>Role:</strong> Manage virtual economy, resource distribution, national development, and economic stability.</p><p><strong>Currency:</strong> Stellar Coin (virtual)</p><p><strong>Goal:</strong> Fairness, prosperity, and sustainable development.</p></div></div>
         <div id="education-en" class="page"><div class="back" onclick="showPage('home-en')">← Back to Home</div><div class="card"><h2>Ministry of Education</h2><p><strong>Role:</strong> Preserve virtual knowledge, history, culture, and citizen education.</p><p><strong>Philosophy:</strong> Knowledge enlightens, civilization endures.</p><p><strong>Main Courses:</strong> Stellar History, Civilization, Creative Thinking.</p></div></div>
@@ -577,50 +645,14 @@
         <div id="ocean-en" class="page"><div class="back" onclick="showPage('home-en')">← Back to Home</div><div class="card"><h2>Ministry of Ocean Affairs</h2><p><strong>Role:</strong> Deep-sea civilization, marine resource management, island ecology, ocean culture heritage.</p><p><strong>Philosophy:</strong> The ocean unites all, isles stand eternal.</p><p><strong>Projects:</strong> Stellar Deep Sea Park, Ocean Civilization Museum, Blue Economy Plan.</p></div></div>
         <div id="creative-en" class="page"><div class="back" onclick="showPage('home-en')">← Back to Home</div><div class="card"><h2>Ministry of Creative & Fantasy</h2><p><strong>Role:</strong> Story writing, novel worldbuilding, character design, alternate history, fantasy systems.</p><p><strong>Philosophy:</strong> Imagination has no limits, fantasy becomes reality.</p><p><strong>Projects:</strong> Stellar Epic Project, Citizen Creation Contest, virtual world expansion.</p></div></div>
         <div id="public-en" class="page"><div class="back" onclick="showPage('home-en')">← Back to Home</div><div class="card"><h2>Ministry of Public Affairs</h2><p><strong>Role:</strong> Citizen services, community management, public projects, national daily operations.</p><p><strong>Philosophy:</strong> Serve citizens, build our home together.</p><p><strong>Projects:</strong> Citizen Service Center, community events, public welfare, national archives.</p></div></div>
-    </div>
-</div>
 
-<footer>
-    <span class="zh-text" style="display:none;">合法声明：本站为虚构创作，不主张任何主权、领土或政府权力。</span>
-    <span class="en-text">Legal Note: This site is fictional. It claims no sovereignty or real-world authority.</span>
-</footer>
-
-<script>
-    let currentPage = 'home';
-    const mottos = {
-        zh: ["星辰为路，文明为光", "和平为纲，共创为魂", "星海无垠，理想飞扬"],
-        en: ["Stars guide the way, civilization shines", "Peace is our foundation, creation our soul", "Beyond the stars, our dreams take flight"]
-    };
-    let mottoIndex = 0;
-
-    function setLang(lang) {
-        document.querySelectorAll('.lang-section').forEach(s => s.classList.remove('active'));
-        document.getElementById(lang).classList.add('active');
-        document.querySelectorAll('.lang-btn').forEach(b => b.classList.remove('active'));
-        document.querySelectorAll('.lang-btn')[lang === 'zh' ? 0 : 1].classList.add('active');
-        document.querySelectorAll('.zh-text').forEach(t => t.style.display = lang === 'zh' ? 'inline' : 'none');
-        document.querySelectorAll('.en-text').forEach(t => t.style.display = lang === 'en' ? 'inline' : 'none');
-        showPage(currentPage + '-' + lang);
-        updateMotto(lang);
-    }
-
-    function showPage(id) {
-        document.querySelectorAll('.page').forEach(p => p.classList.remove('active'));
-        document.getElementById(id).classList.add('active');
-        currentPage = id.split('-')[0];
-    }
-
-    function updateMotto(lang) {
-        document.getElementById('motto').textContent = mottos[lang][mottoIndex];
-    }
-
-    setInterval(() => {
-        mottoIndex = (mottoIndex + 1) % 3;
-        const currentLang = document.querySelector('.lang-section.active').id;
-        updateMotto(currentLang);
-    }, 4000);
-
-    updateMotto('en');
-</script>
-</body>
-</html>
+        <!-- 新增页面：宪法、议会、货币、档案（英文） -->
+        <div id="constitution-en" class="page">
+            <div class="back" onclick="showPage('home-en')">← Back to Home</div>
+            <div class="card">
+                <h2>⚖️ Constitution of the Stellar Isles Federation</h2>
+                <p><strong>Preamble:</strong> To uphold peace, freedom, and creation in the Stellar Isles Federation, this Constitution is established as the supreme law of the nation.</p>
+                <ul class="law-list">
+                    <li>Article 1: The Federation upholds peace, neutrality, creation, and civilization.</li>
+                    <li>Article 2: All citizens are equal, with rights to create, express, and participate.</li>
+                    <li>Article 3: Conflict, discrimination, and violence are
